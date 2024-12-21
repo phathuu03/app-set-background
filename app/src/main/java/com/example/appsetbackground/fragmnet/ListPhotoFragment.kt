@@ -41,8 +41,9 @@ class ListPhotoFragment : Fragment() {
         photoViewModel.searchPhotos("nature",
             {photos ->
                 recyclerViewPhoto.adapter = PhotoAdapter(
-                    {
-                       findNavController().navigate(R.id.action_listPhotoFragment_to_detailPhotoFragment)
+                    {photo ->
+                        val action = ListPhotoFragmentDirections.actionListPhotoFragmentToDetailPhotoFragment(photo)
+                       findNavController().navigate(action)
                     },
                     photos)
 
